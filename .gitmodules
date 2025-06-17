@@ -1,0 +1,6 @@
+[submodule "abc"]
+	path = abc
+	url = https://github.com/berkeley-abc/abc.git
+[submodule "RevSCA-2.0"]
+	path = RevSCA-2.0
+	url = https://github.com/amahzoon/RevSCA-2.0.git

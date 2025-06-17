@@ -1,0 +1,3 @@
+cargo:rerun-if-changed=build/main.rs
+cargo:rustc-env=TYPENUM_BUILD_CONSTS=/export2/jyin629/test/Egraph_Mapping/extraction_gym/target/debug/build/typenum-d0f599b67cbb11e8/out/consts.rs
+cargo:rustc-env=TYPENUM_BUILD_OP=/export2/jyin629/test/Egraph_Mapping/extraction_gym/target/debug/build/typenum-d0f599b67cbb11e8/out/op.rs

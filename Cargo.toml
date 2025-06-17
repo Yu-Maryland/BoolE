@@ -1,0 +1,77 @@
+[package]
+name = "egraph_mapping"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[profile.release]
+debug = true
+opt-level = 3
+
+[dependencies]
+crossbeam-queue = "0.3"
+regex = "1"
+env_logger = { version = "0.9.0", default-features = false }
+fxhash = "0.2.1"
+hashbrown = "0.12.1"
+indexmap = "1.8.1"
+quanta = "0.12"
+log = "0.4.17"
+smallvec = { version = "1.8.0", features = ["union", "const_generics"] }
+symbol_table = { version = "0.2.0", features = ["global"] }
+symbolic_expressions = "5.0.3"
+thiserror = "1.0.31"
+num-bigint = "0.4"
+num-traits = "0.2"
+ordered-float = "3"
+anyhow = "1.0.71"
+rustc-hash = "1.1.0"
+rpds = "1.1.0"
+serde = { version = "1.0.137", features = ["derive"]}
+vectorize = { version = "0.2.0", optional = true}
+serde_json = { version = "1.0.81"}
+saturating = "0.1.0"
+coin_cbc = { version = "0.1.6", optional = true }
+egg = { path = "egg", features = ["serde-1"] }
+egraph_serialize={path="egraph-serialize"}
+extraction_gym = {path="extraction_gym"}
+rayon = "1.5"
+md5 = "0.7"
+[features]
+# forces the use of indexmaps over hashmaps
+deterministic = []
+reports = ["serde-1"]
+ilp-cbc = ["coin_cbc"]
+serde-1 = [
+  "indexmap/serde-1",
+  "hashbrown/serde",
+  "symbol_table/serde",
+  "vectorize",
+]
+wasm-bindgen = []
+self_extractor = []
+egg_extractor = []
+global_greedy_dag = []
+faster_greedy_dag = []
+faster_ilp_cbc = []
+faster_greedy_dag_fa = []
+faster_bottom_up = []
+bottom_up = []
+all_at_once_rule=[]
+batched_rule=[]
+read_from_file=[]
+faster_greedy_dag_fa_mt=[]
+
+
+# private features for testing
+test-explanations = []
+
+[package.metadata.docs.rs]
+all-features = true
+rustdoc-args = ["--cfg", "docsrs"]
+
+
+
+[lib]
+path = "src/language.rs"
