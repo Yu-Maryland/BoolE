@@ -92,7 +92,7 @@ The script supports generating five types of multiplier benchmarks:
 
 You'll be prompted to select a benchmark type (1-5). The script will then generate multipliers from size 4 to 128 (in steps of 4) in the appropriate directory.
 
-When choosing options 2 or 4, the script uses 7nm.genlib (a 7nm technology library) to map the generated circuits to standard cells, producing both .blif and .aig output files with the "_map" suffix.
+When choosing options 2 or 4, the script uses 7nm.genlib (a 7nm technology library) to map the generated circuits to standard cells, producing both .blif and .aig output files with the "_map" suffix. When choosing option 5, the script uses dch command in abc to bit-optimize CSA multipliers.
 
 ---
 
@@ -136,7 +136,7 @@ This runs very quickly and completes formal verification in seconds.
 
 **Slow verification example (without BoolE):**
 ```bash
-./revsca ../benchmark/dch/mul32_dch_boole.aig mul32_dch_boole.txt -u
+./revsca ../benchmark/dch/mul32_dch.aig mul32_dch.txt -u
 ```
 This version (using the original benchmark AIG file) may time out even after a day.
 

@@ -277,10 +277,16 @@ fn build_expr_from_selection(egraph1: &EGraph<SimpleLanguage, ()>, result: &extr
 
 
 fn main() -> io::Result<()> {
-    // ...existing code...
 
     let main_start = Instant::now();
     let args: Vec<String> = env::args().collect();
+
+    // Create ./json directory if it doesn't exist
+    let json_dir = Path::new("./json");
+    if !json_dir.exists() {
+        fs::create_dir_all(json_dir).expect("Failed to create ./json directory");
+    }
+
     if args.len() != 3 {
         eprintln!("Usage: cargo run --features \"faster_greedy_dag_fa_mt\" --release -- benchmark/path/to/file.aig true|false");
         std::process::exit(1);
